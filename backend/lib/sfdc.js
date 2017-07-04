@@ -74,7 +74,7 @@ class ServiceCloud {
 	 */
 	retrieveFieldOfObject (id, cb) {
 		// Check if valid 15 or 18 digit Salesforce-Id is given.
-		if (!/^([a-zA-Z0-9]{15}|[a-zA-Z0-9]{18})$/g.test(id)) return cb(new Error('Invalid Salesforce-Id given.'));
+		if (!/^([a-zA-Z0-9]{5})$/g.test(id)) return cb(new Error('Invalid Salesforce-Id given.'));
 
 		const self = this;
 		const query = "SELECT Axtria_ID__c, isRegistered__c FROM Contact WHERE Axtria_ID__c = id";
