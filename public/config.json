@@ -67,7 +67,9 @@
 	},
 	"arguments": {
 		"execute": {
-			"inArguments": [],
+			"inArguments": [
+				{ "seviceCloudId":"{{Contact.Attribute.sid_test_2.ID}}"}
+			],
 			"outArguments": [],
 			"url": "https://jb-custom-split.herokuapp.com/activity/execute",
 			"verb": "POST",
