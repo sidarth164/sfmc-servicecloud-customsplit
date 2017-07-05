@@ -28,7 +28,15 @@ app.post('/activity/execute', (req, res) => {
 		}
 
 		if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-			let serviceCloudId = 'A1375';
+			var aArgs = req.body.inArguments;
+			var oArgs = {};
+			for (var i=0; i<aArgs.length; i++) {  
+				for (var key in aArgs[i]) { 
+					oArgs[key] = aArgs[i][key]; 
+				}
+			}
+			
+			var serviceCloudId = oArgs.serviceCloudId;
 
 			// TODO: Read the Service Cloud object's Id from inArguments here and
 			// write it to the serviceCloudId variable
