@@ -77,7 +77,7 @@ class ServiceCloud {
 		if (!/^([a-zA-Z0-9]{5})$/g.test(id)) return cb(new Error('Invalid Salesforce-Id given.'));
 
 		const self = this;
-		const query = "SELECT Axtria_ID, isRegistered FROM Contact WHERE Axtria_ID = \'' + id + '\'";
+		const query = "SELECT Axtria_ID__c, isRegistered__c FROM Contact WHERE Axtria_ID__c = '" + id + "'";
 
 		// Login if necessary
 		self._login((e) => {
@@ -95,7 +95,7 @@ class ServiceCloud {
 				}
 
 				if (r.records.length === 1) {
-					return cb(undefined, r.records[0].isRegistered);
+					return cb(undefined, r.records[0].isRegistered__C);
 				} else {
 					return cb(new Error('No unique result returned.'));
 				}
