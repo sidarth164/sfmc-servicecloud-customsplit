@@ -56,7 +56,6 @@ define(function (require) {
 	function save () {
 		payload['arguments'] = payload['arguments'] || {};
 		payload['arguments'].execute = payload['arguments'].execute || {};
-		payload['arguments'].execute.inArguments = [];
 
 		payload['metaData'] = payload['metaData'] || {};
 		payload['metaData'].isConfigured = true;
