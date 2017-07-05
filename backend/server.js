@@ -42,7 +42,7 @@ app.post('/activity/execute', (req, res) => {
 
 				// Check the returned value to make the decision which path should be
 				// followed and return the branchResult accordingly.
-				if (fieldValue === 'Y') {
+				if (fieldValue == 'Y') {
 					return res.status(200).json({branchResult: 'yes_reg'});
 				} else {
 					return res.status(200).json({branchResult: 'not_reg'});
