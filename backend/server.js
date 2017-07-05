@@ -56,9 +56,6 @@ app.post('/activity/execute', (req, res) => {
 					return res.status(200).json({branchResult: 'not_reg'});
 				}
 			});
-		} else if(decoded.inArguments.length == 0){
-			console.error('No inArguments loaded');
-			return res.status(400).end();
 		} else{
 			console.error('inArguments invalid');
 			return res.status(400).end();
