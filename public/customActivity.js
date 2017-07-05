@@ -54,8 +54,6 @@ define(function (require) {
 	}
 
 	function save () {
-		var eventDefinitionKey = $('#select-entryevent-defkey').val();
-
 		payload['arguments'] = payload['arguments'] || {};
 		payload['arguments'].execute = payload['arguments'].execute || {};
 		payload['arguments'].execute.inArguments = [];
