@@ -20,6 +20,16 @@ app.use(require('body-parser').raw({
 
 // Route that is called for every contact who reaches the custom split activity
 app.post('/activity/execute', (req, res) => {
+	var aArgs = req.body.inArguments;
+	var oArgs = {};
+	for (var i=0; i<aArgs.length; i++) {  
+		for (var key in aArgs[i]) { 
+			oArgs[key] = aArgs[i][key]; 
+		}
+	}
+	
+	var serviceCloudId = oArgs.serviceCloudId;
+	
 	verifyJwt(req.body, Pkg.options.salesforce.marketingCloud.jwtSecret, (err, decoded) => {
 		// verification error -> unauthorized request
 		if (err) {
@@ -28,15 +38,7 @@ app.post('/activity/execute', (req, res) => {
 		}
 
 		if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-			var aArgs = req.body.inArguments;
-			var oArgs = {};
-			for (var i=0; i<aArgs.length; i++) {  
-				for (var key in aArgs[i]) { 
-					oArgs[key] = aArgs[i][key]; 
-				}
-			}
 			
-			var serviceCloudId = oArgs.serviceCloudId;
 
 			// TODO: Read the Service Cloud object's Id from inArguments here and
 			// write it to the serviceCloudId variable
