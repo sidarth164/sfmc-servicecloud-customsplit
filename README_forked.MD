@@ -1,4 +1,4 @@
-+AXTRIA
+#AXTRIA
 This is used to create a custom split activity in Journey Builder, Marketing Cloud.
-+What this Actiivity does?
+##What this Actiivity does?
 This activity analyzes which of the contacts have registered at our website (AREXONE - Sample Order) and splits the population according to it.
