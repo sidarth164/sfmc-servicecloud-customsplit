@@ -29,7 +29,7 @@ app.post('/activity/execute', (req, res) => {
 		}
 
 		if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-			var serviceCloudId = decoded.inArguments.serviceCloudId;
+			var serviceCloudId = req.body.inArguments.serviceCloudId;
 			console.log(serviceCloudId);
 			// TODO: Read the Service Cloud object's Id from inArguments here and
 			// write it to the serviceCloudId variable
@@ -43,7 +43,7 @@ app.post('/activity/execute', (req, res) => {
 
 				// Check the returned value to make the decision which path should be
 				// followed and return the branchResult accordingly.
-				if (fieldValue == 'Y') {
+				if (fieldValue === 'Y') {
 					return res.status(200).json({branchResult: 'yes_reg'});
 				} else {
 					return res.status(200).json({branchResult: 'not_reg'});
