@@ -29,7 +29,7 @@ app.post('/activity/execute', (req, res) => {
 		}
 
 		if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-			var serviceCloudId = req.body.inArguments;
+			var serviceCloudId = 'A1375';
 			console.log(serviceCloudId);
 			// TODO: Read the Service Cloud object's Id from inArguments here and
 			// write it to the serviceCloudId variable
@@ -40,7 +40,7 @@ app.post('/activity/execute', (req, res) => {
 					console.error(err);
 					return res.status(500).end();
 				}
-
+				console.log(fieldValue);
 				// Check the returned value to make the decision which path should be
 				// followed and return the branchResult accordingly.
 				if (fieldValue === 'Y') {
