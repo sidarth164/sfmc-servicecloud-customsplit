@@ -29,7 +29,7 @@ app.post('/activity/execute', (req, res) => {
 		}
 
 		if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-			var serviceCloudId = req.body.inArguments.serviceCloudId;
+			var serviceCloudId = req.body.inArguments;
 			console.log(serviceCloudId);
 			// TODO: Read the Service Cloud object's Id from inArguments here and
 			// write it to the serviceCloudId variable
