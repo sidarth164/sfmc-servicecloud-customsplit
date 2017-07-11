@@ -68,7 +68,7 @@
 	"arguments": {
 		"execute": {
 			"inArguments": [
-				{ "seviceCloudId":"{{Contact.Attribute.sid_test_02.Axtria_ID}}"}
+				{ "Id":"{{Contact.Attribute.sid_test_02.Axtria_ID}}"}
 			],
 			"outArguments": [],
 			"url": "https://jb-custom-split.herokuapp.com/activity/execute",
