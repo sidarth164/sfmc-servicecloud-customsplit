@@ -36,9 +36,6 @@ app.post('/activity/execute', (req, res) => {
 					oArgs[key] = aArgs[i][key]; 
 				}
 			}
-
-			console.log(oArgs.serviceCloudId);
-			console.log(decoded.inArguments.serviceCloudId);
 			console.log(decoded.inArguments);
 			var serviceCloudId = 'A0075';
 			// TODO: Read the Service Cloud object's Id from inArguments here and
