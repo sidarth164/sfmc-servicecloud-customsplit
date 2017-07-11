@@ -87,6 +87,7 @@ class ServiceCloud {
 			self.conn.query(query, (e, r) => {
 				// If there was an error, check if only the session expired
 				if (e && self._checkIfSessionIsExpired(e)) {
+					console.log('Salesforce not connected!!');
 					// If the session has expired, call this function again, as the connection
 					// object has now been reset and another login will be performed next time
 					return self.retrieveFieldOfObject(id, cb);
