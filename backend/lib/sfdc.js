@@ -98,7 +98,7 @@ class ServiceCloud {
 				if (r.records.length === 1) {
 					console.log('Value returned');
 					console.log(r.records[0].isRegistered__c,r.records[0].Axtria_ID__c);
-					return cb(undefined, r.records[0].isRegistered__C);
+					return cb(undefined, r.records[0].isRegistered__c);
 				} else {
 					return cb(new Error('No unique result returned.'));
 				}
