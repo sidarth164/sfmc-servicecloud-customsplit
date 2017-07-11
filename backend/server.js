@@ -29,6 +29,7 @@ app.post('/activity/execute', (req, res) => {
 		}
 
 		if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
+			console.log(decoded.inArguments);
 			var aArgs = decoded.inArguments;
 			var oArgs = {};
 			for (var i=0; i<aArgs.length; i++) {  
