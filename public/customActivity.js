@@ -55,11 +55,13 @@ define(function (require) {
 
 	function save () {
 		var option = $('#option').val();
+		console.log(option);
 		
 		payload['arguments'] = payload['arguments'] || {};
 		payload['arguments'].execute = payload['arguments'].execute || {};
 		payload['arguments'].execute.inArguments = [{
-			'option': '{{option}}'
+			'option': '{{option}}',
+			'seviceCloudId'
 		}];
 
 		payload['metaData'] = payload['metaData'] || {};
