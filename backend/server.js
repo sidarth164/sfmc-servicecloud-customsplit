@@ -38,12 +38,14 @@ app.post('/activity/execute', (req, res) => {
 				}
 			}
 			console.log(oArgs.seviceCloudId);
+			console.log(oArgs.option);
 			var serviceCloudId = oArgs.seviceCloudId;
-			// TODO: Read the Service Cloud object's Id from inArguments here and
+			var option = oArgs.option;
+			// Read the Service Cloud object's Id from inArguments here and
 			// write it to the serviceCloudId variable
 
 			// Call the function that retrieves desired data from Service Cloud
-			sfdc.retrieveFieldOfObject(serviceCloudId, (err, fieldValue) => {
+			sfdc.retrieveFieldOfObject(serviceCloudId, option, (err, fieldValue) => {
 				if (err) {
 					console.error(err);
 					return res.status(500).end();
