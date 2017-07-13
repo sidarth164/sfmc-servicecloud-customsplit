@@ -14,43 +14,29 @@ define(function (require) {
 		connection.trigger('ready');
 	});
 
-	connection.on('initActivity', function(payload) {
-        var option;
-
-        if (payload) {
-            toJbPayload = payload;
-            console.log('payload',payload);
-            
-			//merge the array of objects.
-			var aArgs = toJbPayload['arguments'].execute.inArguments;
-			var oArgs = {};
-			for (var i=0; i<aArgs.length; i++) {  
-				for (var key in aArgs[i]) { 
-					oArgs[key] = aArgs[i][key]; 
-				}
-			}
-			//oArgs.priority will contain a value if this activity has already been configured:
-			option = oArgs.priority || toJbPayload['configurationArguments'].defaults.option;            
-        }
-        /*
-		$.get( "/version", function( data ) {
-			$('#version').html('Version: ' + data.version);
-		});                
-
-        // If there is no priority selected, disable the next button
-        if (!option) {
-            connection.trigger('updateButton', { button: 'next', enabled: false });
-        }
-*/
-		//$('#selectPriority').find('option[value='+ priority +']').attr('selected', 'selected');		
-		onGotoStep(step);
-        
-    });
 	
 	function initialize (data) {
 		if (data) {
 			payload = data;
 		}
+	        var option;
+	
+        	if (payload) {
+	            toJbPayload = payload;
+	            console.log('payload',payload);
+	            
+				//merge the array of objects.
+				var aArgs = toJbPayload['arguments'].execute.inArguments;
+				var oArgs = {};
+				for (var i=0; i<aArgs.length; i++) {  
+					for (var key in aArgs[i]) { 
+						oArgs[key] = aArgs[i][key]; 
+					}
+				}
+				//oArgs.option will contain a value if this activity has already been configured:
+				option = oArgs.option || toJbPayload['configurationArguments'].defaults.option;            
+	        }
+	
 	}
 
 	function onClickedNext () {
@@ -103,6 +89,7 @@ define(function (require) {
 		connection.trigger('updateActivity', payload);
 	}
 
+	connection.on('initActivity', initialize);
 	connection.on('clickedNext', onClickedNext);
 	connection.on('clickedBack', onClickedBack);
 	connection.on('gotoStep', onGotoStep);
