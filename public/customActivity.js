@@ -32,7 +32,7 @@ define(function (require) {
 			//oArgs.priority will contain a value if this activity has already been configured:
 			option = oArgs.priority || toJbPayload['configurationArguments'].defaults.option;            
         }
-        
+        /*
 		$.get( "/version", function( data ) {
 			$('#version').html('Version: ' + data.version);
 		});                
@@ -41,7 +41,7 @@ define(function (require) {
         if (!option) {
             connection.trigger('updateButton', { button: 'next', enabled: false });
         }
-
+*/
 		//$('#selectPriority').find('option[value='+ priority +']').attr('selected', 'selected');		
 		onGotoStep(step);
         
