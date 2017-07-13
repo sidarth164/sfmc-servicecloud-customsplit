@@ -54,8 +54,13 @@ define(function (require) {
 	}
 
 	function save () {
+		var option = $('#option').val();
+		
 		payload['arguments'] = payload['arguments'] || {};
 		payload['arguments'].execute = payload['arguments'].execute || {};
+		payload['arguments'].execute.inArguments = [{
+			'option': '{{option}}'
+		}];
 
 		payload['metaData'] = payload['metaData'] || {};
 		payload['metaData'].isConfigured = true;
